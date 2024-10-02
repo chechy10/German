@@ -3,7 +3,7 @@ import { createBot, createProvider, createFlow, addKeyword, utils } from '@build
 import { MemoryDB as Database } from '@builderbot/bot'
 import { BaileysProvider as Provider } from '@builderbot/provider-baileys'
 
-const port = process.env.PORT || 3000; // Definimos el puerto correctamente
+const PORT = process.env.PORT ?? 3006
 
 /*********************FLUJOS IMPORTADOS*********************** */
 
