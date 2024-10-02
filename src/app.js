@@ -3,17 +3,17 @@ import { createBot, createProvider, createFlow, addKeyword, utils } from '@build
 import { MemoryDB as Database } from '@builderbot/bot'
 import { BaileysProvider as Provider } from '@builderbot/provider-baileys'
 
-const PORT = process.env.PORT ?? 3006
+const port = process.env.PORT || 3000; // Definimos el puerto correctamente
 
 /*********************FLUJOS IMPORTADOS*********************** */
 
-import {flowWelcome} from './flows/bienvenida.js'
+import { flowWelcome } from './flows/bienvenida.js'
 
 //-----------------------------------------------------------
 
-import {flowAboutus} from './flows/fmenu/aboutus.js'
+import { flowAboutus } from './flows/fmenu/aboutus.js'
 
-import {flowMenu} from './flows/fmenu/menu.js'
+import { flowMenu } from './flows/fmenu/menu.js'
 
 //----------------------------------------------------------
 
@@ -87,10 +87,21 @@ const fullSamplesFlow = addKeyword(['samples', utils.setEvent('SAMPLES')])
     })*/
 
 const main = async () => {
-    const adapterFlow = createFlow([flowWelcome,flowAboutus,flowMenu,flowInitPedido,flowOrder,flowpedidofin, flowDomicilio,flowHogar,flowUbicacion,flowMetod])
+    const adapterFlow = createFlow([
+        flowWelcome,
+        flowAboutus,
+        flowMenu,
+        flowInitPedido,
+        flowOrder,
+        flowpedidofin,
+        flowDomicilio,
+        flowHogar,
+        flowUbicacion,
+        flowMetod
+    ])
     
-    const adapterProvider = createProvider(Provider,{
-        writeMyself:'host'
+    const adapterProvider = createProvider(Provider, {
+        writeMyself: 'host'
     })
     const adapterDB = new Database()
 
@@ -139,7 +150,7 @@ const main = async () => {
         })
     )
 
-    httpServer(+PORT)
+    httpServer(+port) // Aquí usamos la variable 'port' en lugar de 'PORT'
 }
 
 main()

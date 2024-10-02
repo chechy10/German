@@ -75,7 +75,7 @@ const flowMetod = addKeyword(EVENTS.ACTION)
         await flowDynamic(
           "💵 Si elegiste transferencia, nuestros canales de pago son: Ahorros Bancolombia No.54215816659 \nCódigo Qr:"
         );
-        await provider.sendMedia(ctx.key.remoteJid, "./src/assets/payqr.jpg");
+        await provider.sendMedia(ctx.key.remoteJid, "./src/assets/qr.jpg");
         await flowDynamic("👌 ¡Perfecto! Te esperamos en *Comidas Rápidas El Pirry*🛎️\npara hacer la entrega de tu pedido 🍔🥤\n¡Gracias por tu preferencia! 🙏🤗")
         await flowDynamic(
           "Enseguida un asesor te indicará el monto final.\n¡Por favor, espera un momento! 🙏"
